@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/placeNameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Naziv mjesta"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/selectImageBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Prikaži sliku"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/placeImageView"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp"
+            android:contentDescription="Slika mjesta" />
+
+        <RatingBar
+            android:id="@+id/ratingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.5"
+            android:layout_marginTop="8dp" />
+
+        <Button
+            android:id="@+id/savePlaceBtn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Objavi mjesto"
+            android:layout_marginTop="16dp" />
+    </LinearLayout>
+</ScrollView>

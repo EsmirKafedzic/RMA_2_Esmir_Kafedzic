@@ -1,0 +1,227 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa9f67e453, pid=15876, tid=18692
+#
+# JRE version:  (11.0.25+9) (build )
+# Java VM: OpenJDK 64-Bit Server VM (11.0.25+9-LTS, mixed mode, sharing, tiered, compressed oops, g1 gc, windows-amd64)
+# Problematic frame:
+# V  [jvm.dll+0x1ee453]
+#
+# No core dump will be written. Minidumps are not enabled by default on client versions of Windows
+#
+#
+
+---------------  S U M M A R Y ------------
+
+Command Line: -Xmx64m -Xms64m -Dorg.gradle.appname=gradlew org.gradle.wrapper.GradleWrapperMain build
+
+Host: AMD Ryzen 7 5700X3D 8-Core Processor           , 16 cores, 31G,  Windows 11 , 64 bit Build 26100 (10.0.26100.3912)
+Time: Sat May 17 11:18:24 2025 Central European Summer Time elapsed time: 0.092145 seconds (0d 0h 0m 0s)
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x000001e67d6ca000):  JavaThread "Unknown thread" [_thread_in_vm, id=18692, stack(0x000000a10ca00000,0x000000a10cb00000)]
+
+Stack: [0x000000a10ca00000,0x000000a10cb00000],  sp=0x000000a10cafea60,  free space=1018k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0x1ee453]
+V  [jvm.dll+0x1ec583]
+V  [jvm.dll+0x3800fb]
+V  [jvm.dll+0x795f1f]
+V  [jvm.dll+0x3f0a37]
+V  [jvm.dll+0x3f2fa1]
+C  [jli.dll+0x52ef]
+C  [ucrtbase.dll+0x37b0]
+C  [KERNEL32.DLL+0x2e8d7]
+C  [ntdll.dll+0x9c5dc]
+
+
+siginfo: EXCEPTION_ACCESS_VIOLATION (0xc0000005), reading address 0x0000000000000000
+
+
+Registers:
+RAX=0x0000e68c9e1c1e59, RBX=0x0000000000000000, RCX=0x0000000000000000, RDX=0x00007ffb4832d0f4
+RSP=0x000000a10cafea60, RBP=0x0000000000000000, RSI=0x000001e67d6ca000, RDI=0x0000000000000000
+R8 =0x0000000000000000, R9 =0x0000000000000000, R10=0x0000000000000000, R11=0x0000000000000000
+R12=0x0000000000000000, R13=0x00007ffa9fa7e1d0, R14=0x000000a10caff778, R15=0x0000000000000008
+RIP=0x00007ffa9f67e453, EFLAGS=0x0000000000010256
+
+Top of Stack: (sp=0x000000a10cafea60)
+0x000000a10cafea60:   000001e600001fff 000001e67b3ec940
+0x000000a10cafea70:   0000000000000008 0000000000000400
+0x000000a10cafea80:   000054e8263ec6d5 0000000000000400
+0x000000a10cafea90:   00007ffb48320000 00007ffa9f67c42a
+0x000000a10cafeaa0:   00007ffa9fa7e1d0 0000000000000000
+0x000000a10cafeab0:   00007ffa9fd57338 00007ffb48320000
+0x000000a10cafeac0:   0000000000000003 00007ffb61709efc
+0x000000a10cafead0:   0000000000000000 00007ffa9facfc38
+0x000000a10cafeae0:   0000000000000000 00007ffa9fdbe100
+0x000000a10cafeaf0:   000000a100000000 00007ffa9f67c42a
+0x000000a10cafeb00:   0000e68c9e1c1e59 00007ffa9fd57338
+0x000000a10cafeb10:   0000000000000008 00007ffa9fa7e1d0
+0x000000a10cafeb20:   000001e67d6ca000 000000a10cafec40
+0x000000a10cafeb30:   000001e67b3e6dd0 00007ffa9f67c583
+0x000000a10cafeb40:   000000a10caff778 00007ffb4832d0f4
+0x000000a10cafeb50:   0000000000000000 0000000000000000 
+
+Instructions: (pc=0x00007ffa9f67e453)
+0x00007ffa9f67e353:   f0 ff 15 ee 14 62 00 48 8b cb 41 b1 01 48 2b 8c
+0x00007ffa9f67e363:   24 90 00 00 00 45 33 c0 33 d2 c6 04 31 00 48 8b
+0x00007ffa9f67e373:   ce e8 c7 0b 00 00 42 80 3c 33 3b 4a 8d 3c 33 75
+0x00007ffa9f67e383:   1c 0f 1f 40 00 0f 1f 84 00 00 00 00 00 48 ff c3
+0x00007ffa9f67e393:   ff c5 42 80 3c 33 3b 4a 8d 3c 33 74 f0 49 83 3c
+0x00007ffa9f67e3a3:   24 00 74 18 48 8b 94 24 98 00 00 00 49 8b cf e8
+0x00007ffa9f67e3b3:   59 46 ed ff 49 8b cc e8 c1 45 ed ff 48 8b 44 24
+0x00007ffa9f67e3c3:   20 48 8d 4c 24 30 4d 89 67 10 49 89 47 18 48 8b
+0x00007ffa9f67e3d3:   44 24 28 49 89 47 20 e8 61 b2 0f 00 44 8b ed 48
+0x00007ffa9f67e3e3:   89 9c 24 90 00 00 00 48 3b 5c 24 38 0f 8c cd fe
+0x00007ffa9f67e3f3:   ff ff 4c 8b 7c 24 40 4c 8b 64 24 48 48 8b 7c 24
+0x00007ffa9f67e403:   50 48 8b 74 24 58 48 8b 9c 24 80 00 00 00 48 83
+0x00007ffa9f67e413:   c4 60 41 5e 41 5d 5d c3 cc cc cc cc cc 40 53 55
+0x00007ffa9f67e423:   56 41 55 48 81 ec b8 00 00 00 48 8b 05 24 de 8c
+0x00007ffa9f67e433:   00 48 33 c4 48 89 84 24 a0 00 00 00 48 8b e9 48
+0x00007ffa9f67e443:   c7 c3 ff ff ff ff 0f 1f 80 00 00 00 00 48 ff c3
+0x00007ffa9f67e453:   80 3c 0b 00 75 f7 33 f6 c6 44 24 30 01 40 38 35
+0x00007ffa9f67e463:   54 10 90 00 74 17 40 38 35 30 76 8f 00 75 0e 33
+0x00007ffa9f67e473:   d2 48 8d 0d e5 8c 6d 00 e8 d0 e6 1a 00 45 33 ed
+0x00007ffa9f67e483:   85 db 0f 8e 11 02 00 00 48 89 bc 24 e8 00 00 00
+0x00007ffa9f67e493:   48 8b fd 48 63 c3 33 db 4c 89 a4 24 f0 00 00 00
+0x00007ffa9f67e4a3:   4c 89 b4 24 f8 00 00 00 4c 89 bc 24 b0 00 00 00
+0x00007ffa9f67e4b3:   48 89 5c 24 40 48 89 44 24 68 0f 1f 00 0f b6 07
+0x00007ffa9f67e4c3:   84 c0 74 12 3c 3b 74 0e 0f b6 44 2b 01 48 ff c3
+0x00007ffa9f67e4d3:   ff c6 84 c0 75 ee 48 8d 54 24 38 48 c7 44 24 38
+0x00007ffa9f67e4e3:   00 00 00 00 48 8d 4c 24 60 e8 af b0 0f 00 48 8b
+0x00007ffa9f67e4f3:   44 24 38 33 d2 4c 8b b0 78 02 00 00 49 8b 46 18
+0x00007ffa9f67e503:   4d 8b 66 10 48 89 44 24 50 49 8b 46 20 48 89 44
+0x00007ffa9f67e513:   24 58 49 8b 46 28 48 89 44 24 48 8b c6 41 2b c5
+0x00007ffa9f67e523:   48 63 f8 48 8d 4f 01 e8 f1 84 4b 00 49 63 d5 4c
+0x00007ffa9f67e533:   8b c7 48 03 d5 48 8b c8 4c 8b f8 ff 15 04 13 62
+0x00007ffa9f67e543:   00 48 8b cb 48 2b 4c 24 40 80 7c 24 30 00 42 c6 
+
+
+
+---------------  P R O C E S S  ---------------
+
+Threads class SMR info:
+_java_thread_list=0x000001e67b3e6ca0, length=0, elements={
+}
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x000001e67d6ca000 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=18692, stack(0x000000a10ca00000,0x000000a10cb00000)]
+
+Threads with active compile tasks:
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+
+[error occurred during error reporting (printing compressed oops mode), id 0xc0000005, EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x00007ffa9fc44b97]
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (1 events):
+Event: 0.068 Loaded shared library C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\zip.dll
+
+
+Dynamic libraries:
+0x00007ff7c9640000 - 0x00007ff7c964e000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\java.exe
+0x00007ffb63d00000 - 0x00007ffb63f66000 	C:\WINDOWS\SYSTEM32\ntdll.dll
+0x00007ffb631a0000 - 0x00007ffb63269000 	C:\WINDOWS\System32\KERNEL32.DLL
+0x00007ffb61660000 - 0x00007ffb61a2c000 	C:\WINDOWS\System32\KERNELBASE.dll
+0x00007ffb61160000 - 0x00007ffb612ab000 	C:\WINDOWS\System32\ucrtbase.dll
+0x00007ffb4b830000 - 0x00007ffb4b84b000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\VCRUNTIME140.dll
+0x00007ffb486c0000 - 0x00007ffb486d7000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\jli.dll
+0x00007ffb632f0000 - 0x00007ffb634ba000 	C:\WINDOWS\System32\USER32.dll
+0x00007ffb61370000 - 0x00007ffb61397000 	C:\WINDOWS\System32\win32u.dll
+0x00007ffb4ea10000 - 0x00007ffb4ecaa000 	C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.3912_none_3e07963ce335137e\COMCTL32.dll
+0x00007ffb61b60000 - 0x00007ffb61b8b000 	C:\WINDOWS\System32\GDI32.dll
+0x00007ffb62350000 - 0x00007ffb623f9000 	C:\WINDOWS\System32\msvcrt.dll
+0x00007ffb613a0000 - 0x00007ffb614d2000 	C:\WINDOWS\System32\gdi32full.dll
+0x00007ffb610b0000 - 0x00007ffb61153000 	C:\WINDOWS\System32\msvcp_win.dll
+0x00007ffb61b90000 - 0x00007ffb61bc0000 	C:\WINDOWS\System32\IMM32.DLL
+0x00007ffb52d50000 - 0x00007ffb52d5c000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\vcruntime140_1.dll
+0x00007ffb426d0000 - 0x00007ffb4275d000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\msvcp140.dll
+0x00007ffa9f490000 - 0x00007ffaa0055000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\server\jvm.dll
+0x00007ffb625e0000 - 0x00007ffb62692000 	C:\WINDOWS\System32\ADVAPI32.dll
+0x00007ffb626a0000 - 0x00007ffb62746000 	C:\WINDOWS\System32\sechost.dll
+0x00007ffb627b0000 - 0x00007ffb628c6000 	C:\WINDOWS\System32\RPCRT4.dll
+0x00007ffb63270000 - 0x00007ffb632e4000 	C:\WINDOWS\System32\WS2_32.dll
+0x00007ffb61c20000 - 0x00007ffb61c28000 	C:\WINDOWS\System32\PSAPI.DLL
+0x00007ffb59d00000 - 0x00007ffb59d0b000 	C:\WINDOWS\SYSTEM32\VERSION.dll
+0x00007ffb55ce0000 - 0x00007ffb55d16000 	C:\WINDOWS\SYSTEM32\WINMM.dll
+0x00007ffb5fc10000 - 0x00007ffb5fc2a000 	C:\WINDOWS\SYSTEM32\kernel.appcore.dll
+0x00007ffb51d60000 - 0x00007ffb51d70000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\verify.dll
+0x00007ffb5e6a0000 - 0x00007ffb5e8e1000 	C:\WINDOWS\SYSTEM32\DBGHELP.DLL
+0x00007ffb63720000 - 0x00007ffb63aa4000 	C:\WINDOWS\System32\combase.dll
+0x00007ffb630b0000 - 0x00007ffb63190000 	C:\WINDOWS\System32\OLEAUT32.dll
+0x00007ffb4dfd0000 - 0x00007ffb4e009000 	C:\WINDOWS\SYSTEM32\dbgcore.DLL
+0x00007ffb60e90000 - 0x00007ffb60f29000 	C:\WINDOWS\System32\bcryptPrimitives.dll
+0x00007ffb48320000 - 0x00007ffb48348000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\java.dll
+0x00007ffb514d0000 - 0x00007ffb514da000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\jimage.dll
+0x00007ffb486a0000 - 0x00007ffb486b8000 	C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\zip.dll
+
+dbghelp: loaded successfully - version: 4.0.5 - missing functions: none
+symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin;C:\WINDOWS\SYSTEM32;C:\WINDOWS\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.26100.3912_none_3e07963ce335137e;C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin\server
+
+VM Arguments:
+jvm_args: -Xmx64m -Xms64m -Dorg.gradle.appname=gradlew 
+java_command: org.gradle.wrapper.GradleWrapperMain build
+java_class_path (initial): C:\Users\esmir\Desktop\places\\gradle\wrapper\gradle-wrapper.jar
+Launcher Type: SUN_STANDARD
+
+[Global flags]
+     uint G1ConcRefinementThreads                  = 13                                        {product} {ergonomic}
+    uintx GCDrainStackTargetSize                   = 64                                        {product} {ergonomic}
+   size_t InitialHeapSize                          = 67108864                                  {product} {command line}
+   size_t MaxHeapSize                              = 67108864                                  {product} {command line}
+    uintx ReservedCodeCacheSize                    = 251658240                              {pd product} {ergonomic}
+     bool SegmentedCodeCache                       = true                                      {product} {ergonomic}
+     bool UseCompressedClassPointers               = true                                 {lp64_product} {ergonomic}
+     bool UseCompressedOops                        = true                                 {lp64_product} {ergonomic}
+     bool UseG1GC                                  = true                                      {product} {ergonomic}
+     bool UseLargePagesIndividualAllocation        = false                                  {pd product} {ergonomic}
+
+Logging:
+Log output configuration:
+ #0: stdout all=warning uptime,level,tags
+ #1: stderr all=off uptime,level,tags
+
+Environment Variables:
+JAVA_HOME=C:\Program Files\Amazon Corretto\jdk11.0.25_9
+CLASSPATH=C:\Users\esmir\Desktop\places\\gradle\wrapper\gradle-wrapper.jar
+PATH=C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files\Amazon Corretto\jdk11.0.25_9\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\xampp\php;C:\ProgramData\ComposerSetup\bin;;C:\Users\esmir\AppData\Local\Programs\Python\Python312\Scripts\;C:\Users\esmir\AppData\Local\Programs\Python\Python312\;C:\Users\esmir\AppData\Local\Microsoft\WindowsApps;C:\Users\esmir\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\esmir\AppData\Roaming\Composer\vendor\bin
+USERNAME=esmir
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=AMD64 Family 25 Model 33 Stepping 2, AuthenticAMD
+TMP=C:\Users\esmir\AppData\Local\Temp
+TEMP=C:\Users\esmir\AppData\Local\Temp
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows 11 , 64 bit Build 26100 (10.0.26100.3912)
+OS uptime: 3 days 15:52 hours
+
+CPU:total 16 (initial active 16) 
+
+Memory: 4k page, system-wide physical 32690M (15893M free)
+TotalPageFile size 35406M (AvailPageFile size 13049M)
+current process WorkingSet (physical memory assigned to process): 11M, peak: 11M
+current process commit charge ("private bytes"): 3M, peak: 3M
+
+vm_info: OpenJDK 64-Bit Server VM (11.0.25+9-LTS) for windows-amd64 JRE (11.0.25+9-LTS), built on Oct 10 2024 00:01:59 by "Administrator" with MS VC++ 16.10 / 16.11 (VS2019)
+
+END.
