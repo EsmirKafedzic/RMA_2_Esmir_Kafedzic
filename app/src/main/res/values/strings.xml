@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">places</string>
+    <string-array name="rating_filter_options">
+        <item>Sve ocjene</item>
+        <item>Ocjena 4.0+</item>
+        <item>Ocjena 3.0+</item>
+        <item>Ocjena 2.0+</item>
+    </string-array>
+
 </resources>

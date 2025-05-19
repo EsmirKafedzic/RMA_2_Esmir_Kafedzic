@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RatingBarDark" parent="Theme.AppCompat">
+        <item name="colorControlNormal">#888888</item>
+        <item name="colorControlActivated">#FFD700</item> <!-- zlatna za zvjezdice -->
+    </style>
+
+</resources>

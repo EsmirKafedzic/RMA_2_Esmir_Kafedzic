@@ -17,7 +17,8 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    EditText emailRegister, passwordRegister;
+    private static final String TAG = "RegisterActivity";
+    EditText emailRegister, passwordRegister, nameRegister;
     Button registerBtn;
     FirebaseAuth auth;
     FirebaseFirestore db;
@@ -27,52 +28,60 @@ public class RegisterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        // Inicijalizacija Firebase
         auth = FirebaseAuth.getInstance();
         db = FirebaseFirestore.getInstance();
 
-        // Povezivanje UI elemenata
         emailRegister = findViewById(R.id.emailRegister);
         passwordRegister = findViewById(R.id.passwordRegister);
+        nameRegister = findViewById(R.id.nameRegister);
         registerBtn = findViewById(R.id.registerBtn);
 
-        // Klik na dugme za registraciju
         registerBtn.setOnClickListener(v -> {
             String email = emailRegister.getText().toString().trim();
             String password = passwordRegister.getText().toString().trim();
+            String name = nameRegister.getText().toString().trim();
 
-            // Validacija
-            if (email.isEmpty() || password.length() < 6) {
-                Toast.makeText(this, "Unesite validan email i lozinku (min 6 karaktera)", Toast.LENGTH_SHORT).show();
+            if (email.isEmpty() || password.length() < 6 || name.isEmpty()) {
+                Toast.makeText(this, "Unesite validan email, lozinku (min 6 karaktera) i ime", Toast.LENGTH_SHORT).show();
+                Log.d(TAG, "Validacija neuspješna: email, lozinka ili ime neispravni");
                 return;
             }
 
-            // Firebase Auth - Kreiranje korisnika
+            Log.d(TAG, "Pokrenuta registracija za email: " + email + ", ime: " + name);
+
             auth.createUserWithEmailAndPassword(email, password)
                     .addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
-                            String userId = auth.getCurrentUser().getUid();
+                            Log.d(TAG, "Firebase Auth uspješan, userId: " + auth.getCurrentUser().getUid());
+                            Toast.makeText(this, "Registracija uspješna!", Toast.LENGTH_SHORT).show();
 
-                            // Dodavanje podataka u Firestore
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("email", email);
+                            // Spremi podatke u Firestore
+                            if (auth.getCurrentUser() != null) {
+                                String userId = auth.getCurrentUser().getUid();
+                                Map<String, Object> user = new HashMap<>();
+                                user.put("email", email);
+                                user.put("name", name);
 
-                            db.collection("users")
-                                    .document(userId)
-                                    .set(user)
-                                    .addOnSuccessListener(unused -> {
-                                        Toast.makeText(this, "Registracija uspješna!", Toast.LENGTH_SHORT).show();
+                                db.collection("users")
+                                        .document(userId)
+                                        .set(user)
+                                        .addOnSuccessListener(aVoid -> {
+                                            Log.d(TAG, "Firestore: Ime i email uspješno spremljeni");
+                                        })
+                                        .addOnFailureListener(e -> {
+                                            Log.e(TAG, "Greška pri pisanju u Firestore: " + e.getMessage());
+                                            Toast.makeText(this, "Greška pri spremanju podataka: " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                        });
+                            } else {
+                                Log.e(TAG, "Korisnik je null nakon uspješne autentifikacije");
+                            }
 
-                                        // ✅ Redirekcija na Login ekran
-                                        Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                        startActivity(intent);
-                                        finish(); // da se ne može vratiti na register
-                                    })
-                                    .addOnFailureListener(e -> {
-                                        Toast.makeText(this, "Greška pri spremanju: " + e.getMessage(), Toast.LENGTH_LONG).show();
-                                    });
-
+                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                            startActivity(intent);
+                            finish();
+                            Log.d(TAG, "Prebačen na LoginActivity i završen RegisterActivity");
                         } else {
+                            Log.e(TAG, "Firebase Auth neuspješan: " + task.getException().getMessage());
                             Toast.makeText(this, "Registracija neuspješna: " + task.getException().getMessage(), Toast.LENGTH_LONG).show();
                         }
                     });
